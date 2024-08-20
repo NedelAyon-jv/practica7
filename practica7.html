@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Example</title>
+
+    <style>
+        body {
+            background-color: gray;
+        }
+        canvas {
+            background-color: white;
+        }
+    </style>
+</head>
+
+
+<body>
+    <canvas id="myCanvas" width="600" height="500"></canvas>
+    <script type="text/javascript">
+        const myCanvas = document.getElementById("myCanvas");
+        const ctx = myCanvas.getContext("2d");
+        const img = new Image();
+
+        ctx.fillStyle = "red";
+        ctx.fillRect(20, 20, 100, 100);
+
+        ctx.fillStyle = "blue";
+        ctx.fillRect(100, 100, 100, 100);
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(180, 180, 100, 100);
+
+        
+        ctx.beginPath();        
+        ctx.lineWidth = "5";
+        ctx.strokeStyle = "green";
+        ctx.moveTo(10, 75);
+        ctx.lineTo(250, 100);
+        ctx.stroke();
+        
+      
+        ctx.beginPath();
+        ctx.strokeStyle = "purple";
+        ctx.moveTo(55, 0);
+        ctx.lineTo(250, 100);      
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.strokeStyle = "blue";
+        ctx.moveTo(55, 0);
+        ctx.lineTo(10, 80);      
+        ctx.stroke();
+        //primer circulo 
+        ctx.beginPath();
+        ctx.arc(100, 300,40, 0 , 2 * Math.PI);
+        ctx.strokeStyle = "gray";
+        ctx.stroke();
+        //primer circulo rellenado
+        ctx.beginPath();
+        ctx.arc(300, 400,40, 0 , 2 * Math.PI);
+        ctx.fillStyle = "blue" ;
+        ctx.fill();
+        //contorno circulo
+        ctx.beginPath();
+        ctx.arc(420, 300, 100, 80 * Math.PI/180, 90* Math.PI/100);
+        ctx.strokeStyle = "red"; 
+        ctx.stroke();
+
+      
+      //imagen 
+        img.src = "prueba.jpg"
+        img.onload = function(){
+            ctx.drawImage(img, 300, 300, 150, 150);
+        }
+
+
+        //texto
+        ctx.lineWidth = 1;
+        ctx.font = "50px Georgia";
+        ctx.strokeText("Tuki!", 380, 50);
+        ctx.strokeStyle = "pink";
+        ctx.font = "50px Georgia";
+        ctx.fillText("Tuki!", 381, 51);
+    
+    </script>
+</body>
+</html>
